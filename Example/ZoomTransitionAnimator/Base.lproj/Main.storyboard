@@ -1,25 +1,98 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Parent View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ParentViewController" customModule="ZoomTransitionAnimator_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YXm-8w-arF">
+                                <rect key="frame" x="76" y="333.33333333333331" width="223" height="145.33333333333331"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="YXm-8w-arF" secondAttribute="height" multiplier="500:326" id="2XF-GZ-DKi"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="marguerite-daisy-beautiful-beauty.jpg"/>
+                                <connections>
+                                    <segue destination="tCM-D1-EUN" kind="presentation" id="Idu-lf-GZ5"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="YXm-8w-arF" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="4Z3-Lq-eR4"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="YXm-8w-arF" secondAttribute="trailing" constant="60" id="5ev-qU-H6y"/>
+                            <constraint firstItem="YXm-8w-arF" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="Wfl-Et-7UY"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageButton" destination="YXm-8w-arF" id="TJh-hG-nTY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
+        <!--Child View Controller-->
+        <scene sceneID="t71-ur-8Mw">
+            <objects>
+                <viewController id="tCM-D1-EUN" customClass="ChildViewController" customModule="ZoomTransitionAnimator_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="84C-jo-0je"/>
+                        <viewControllerLayoutGuide type="bottom" id="Zxi-PV-9BV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gNi-b7-aT7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="marguerite-daisy-beautiful-beauty.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="jXO-ts-xyD">
+                                <rect key="frame" x="0.0" y="89.999999999999986" width="375" height="244.66666666666663"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="jXO-ts-xyD" secondAttribute="height" multiplier="500:326" id="2Fu-nA-Tan"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XLv-ly-s5L">
+                                <rect key="frame" x="170" y="342.66666666666669" width="34" height="30"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <action selector="didPressBackButton:" destination="tCM-D1-EUN" eventType="touchUpInside" id="o6A-z3-Gm6"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="jXO-ts-xyD" firstAttribute="top" secondItem="84C-jo-0je" secondAttribute="bottom" constant="46" id="4PP-ax-HNR"/>
+                            <constraint firstAttribute="trailing" secondItem="jXO-ts-xyD" secondAttribute="trailing" id="6nu-qr-uqi"/>
+                            <constraint firstItem="XLv-ly-s5L" firstAttribute="centerX" secondItem="gNi-b7-aT7" secondAttribute="centerX" id="8nk-CM-uBZ"/>
+                            <constraint firstItem="XLv-ly-s5L" firstAttribute="top" secondItem="jXO-ts-xyD" secondAttribute="bottom" constant="8" id="Gky-EJ-4Ku"/>
+                            <constraint firstItem="jXO-ts-xyD" firstAttribute="leading" secondItem="gNi-b7-aT7" secondAttribute="leading" id="Lge-jq-MdY"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="jXO-ts-xyD" id="l59-Lp-k0J"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SvX-c3-mMT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1365.5999999999999" y="36.945812807881772"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="marguerite-daisy-beautiful-beauty.jpg" width="500" height="326"/>
+    </resources>
 </document>
