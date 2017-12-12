@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'ZoomTransitionAnimator'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of ZoomTransitionAnimator.'
+  s.summary          = 'For Pinterest-like zoom transition where the whole scene zoom with the cell.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,7 +18,9 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+A zoom transition animator, which lets you zoom between two view controllers. It zooms the whole scene, not just the image view or the cell.
+
+It can zoom anything, because it depends on CGRect not UIView.
                        DESC
 
   s.homepage         = 'https://github.com/yesleon/ZoomTransitionAnimator'

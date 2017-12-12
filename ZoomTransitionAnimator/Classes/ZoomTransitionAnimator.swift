@@ -8,6 +8,22 @@
 
 import UIKit
 
+public enum ZoomTransitionOperation: Int {
+    case zoomIn = 1, zoomOut = 2
+}
+
+public protocol ZoomTransitionSource {
+    
+    func zoomTransitionAnimator(_ animator: ZoomTransitionAnimator, targetViewBeginningFrameFor operation: ZoomTransitionOperation) -> CGRect
+    
+}
+
+public protocol ZoomTransitionDestination {
+    
+    func zoomTransitionAnimator(_ animator: ZoomTransitionAnimator, targetViewFinalFrameFor operation: ZoomTransitionOperation) -> CGRect
+}
+
+
 public class ZoomTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
     let duration: TimeInterval
@@ -46,7 +62,7 @@ public class ZoomTransitionAnimator: NSObject, UIViewControllerAnimatedTransitio
         let targetViewFinalFrame = destination.zoomTransitionAnimator(self, targetViewFinalFrameFor: operation)
         
         
-         // Adding views to view hierarchy
+        // Adding views to view hierarchy
         
         let backgroundView = UIView(frame: containerView.bounds)
         containerView.addSubview(backgroundView)
