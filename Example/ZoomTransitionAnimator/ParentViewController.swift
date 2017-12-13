@@ -24,16 +24,16 @@ class ParentViewController: UIViewController {
 extension ParentViewController: UIViewControllerTransitioningDelegate {
     
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        if let destination = presented as? ZoomTransitionDestination {
-            return ZoomTransitionAnimator(source: self, destination: destination, operation: .zoomIn)
+        if let destination = presented as? ZoomTransitionDestination, let source = presenting as? ZoomTransitionSource {
+            return ZoomTransitionAnimator(source: source, destination: destination, operation: .zoomIn)
         } else {
             return nil
         }
     }
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        if let source = dismissed as? ZoomTransitionSource {
-            return ZoomTransitionAnimator(source: source, destination: self, operation: .zoomOut)
+        if let source = dismissed as? ZoomTransitionSource, let destination = dismissed.presentingViewController as? ZoomTransitionDestination {
+            return ZoomTransitionAnimator(source: source, destination: destination, operation: .zoomOut)
         } else {
             return nil
         }

@@ -5,6 +5,10 @@
 [![License](https://img.shields.io/cocoapods/l/ZoomTransitionAnimator.svg?style=flat)](http://cocoapods.org/pods/ZoomTransitionAnimator)
 [![Platform](https://img.shields.io/cocoapods/p/ZoomTransitionAnimator.svg?style=flat)](http://cocoapods.org/pods/ZoomTransitionAnimator)
 
+ZoomTransitionAnimator is a transition animator between view controllers. It zooms the whole scene together, not just the cell or image view you selected. Multi-layer zooming (zoom-in from view controller A to B and then to C) is supported. Although not an interactive transition animator, you can use it with `UIPanGestureRecognizer`. As long as you return the correct frame of the target view in absolute space (`UIScreen.main.coordinateSpace`), the animator will find it and zoom out from there.
+
+![](Example.gif)
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.

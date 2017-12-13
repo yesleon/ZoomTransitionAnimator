@@ -94,6 +94,16 @@ Example</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sQu-3k-x6P">
+                                <rect key="frame" x="212" y="343" width="56" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="sQu-3k-x6P" secondAttribute="height" multiplier="28:15" id="YEJ-co-udA"/>
+                                </constraints>
+                                <state key="normal" title="Zoom in"/>
+                                <connections>
+                                    <segue destination="yCd-Bi-gkb" kind="show" id="Wq0-9E-7t4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" name="systemOrangeColor" catalog="System" colorSpace="catalog"/>
                         <constraints>
@@ -103,13 +113,17 @@ Example</string>
                             <constraint firstItem="XLv-ly-s5L" firstAttribute="centerX" secondItem="gNi-b7-aT7" secondAttribute="centerX" id="8nk-CM-uBZ"/>
                             <constraint firstItem="VHm-AC-DdF" firstAttribute="leading" secondItem="gNi-b7-aT7" secondAttribute="leadingMargin" id="Dap-ZA-SGA"/>
                             <constraint firstItem="XLv-ly-s5L" firstAttribute="top" secondItem="jXO-ts-xyD" secondAttribute="bottom" constant="8" id="Gky-EJ-4Ku"/>
+                            <constraint firstItem="sQu-3k-x6P" firstAttribute="leading" secondItem="XLv-ly-s5L" secondAttribute="trailing" constant="8" id="Ie9-82-S8L"/>
                             <constraint firstItem="jXO-ts-xyD" firstAttribute="leading" secondItem="gNi-b7-aT7" secondAttribute="leading" id="Lge-jq-MdY"/>
+                            <constraint firstItem="sQu-3k-x6P" firstAttribute="top" secondItem="jXO-ts-xyD" secondAttribute="bottom" constant="8.3300000000000001" id="WNa-XA-cxi"/>
+                            <constraint firstItem="VHm-AC-DdF" firstAttribute="top" secondItem="sQu-3k-x6P" secondAttribute="bottom" constant="8" id="lq1-Yf-NP9"/>
                             <constraint firstItem="Zxi-PV-9BV" firstAttribute="top" secondItem="VHm-AC-DdF" secondAttribute="bottom" constant="8" id="qgm-ym-jGm"/>
                             <constraint firstItem="VHm-AC-DdF" firstAttribute="top" secondItem="XLv-ly-s5L" secondAttribute="bottom" constant="8" id="xCm-JV-rRV"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="imageView" destination="jXO-ts-xyD" id="l59-Lp-k0J"/>
+                        <outlet property="zoomInButton" destination="sQu-3k-x6P" id="6qa-4X-7SP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SvX-c3-mMT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -120,6 +134,44 @@ Example</string>
                 </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1365.5999999999999" y="36.945812807881772"/>
+        </scene>
+        <!--Grandchild View Controller-->
+        <scene sceneID="ccQ-mp-se1">
+            <objects>
+                <viewController id="yCd-Bi-gkb" customClass="GrandchildViewController" customModule="ZoomTransitionAnimator_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2TU-4D-kVH"/>
+                        <viewControllerLayoutGuide type="bottom" id="hDv-RU-Ogv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Bpd-Vi-GxF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gir-cm-Rkx">
+                                <rect key="frame" x="57.333333333333343" y="337.33333333333331" width="260" height="139"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="gir-cm-Rkx" secondAttribute="height" multiplier="28:15" id="85d-Z6-6Us"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="64"/>
+                                <state key="normal" title="Zoom out"/>
+                                <connections>
+                                    <action selector="didTapZoomOutButton:" destination="yCd-Bi-gkb" eventType="touchUpInside" id="dIv-fx-8Pk"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="gir-cm-Rkx" firstAttribute="centerY" secondItem="Bpd-Vi-GxF" secondAttribute="centerY" id="TN0-g9-YZK"/>
+                            <constraint firstItem="gir-cm-Rkx" firstAttribute="centerX" secondItem="Bpd-Vi-GxF" secondAttribute="centerX" id="ya5-4S-HQi"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="zoomOutButton" destination="gir-cm-Rkx" id="Lfp-7k-NeA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q4T-aP-rCi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2133.5999999999999" y="230.54187192118226"/>
         </scene>
     </scenes>
     <resources>
