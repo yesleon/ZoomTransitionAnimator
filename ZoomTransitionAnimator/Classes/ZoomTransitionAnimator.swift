@@ -74,7 +74,7 @@ public class ZoomTransitionAnimator: NSObject, UIViewControllerAnimatedTransitio
             UIGraphicsBeginImageContextWithOptions(targetViewBeginningFrame.size, false, 0)
             let newFrame = CGRect(x: -targetViewBeginningFrame.origin.x, y: -targetViewBeginningFrame.origin.y, width: containerView.frame.width, height: containerView.frame.height)
             containerView.drawHierarchy(in: newFrame, afterScreenUpdates: false)
-            guard let targetViewSnapshotImage = UIGraphicsGetImageFromCurrentImageContext() else { fatalError() }
+            guard let targetViewSnapshotImage = UIGraphicsGetImageFromCurrentImageContext() else { return UIView() }
             UIGraphicsEndImageContext()
             return UIImageView(image: targetViewSnapshotImage)
         }()

@@ -41,18 +41,13 @@ extension ParentViewController: UIViewControllerTransitioningDelegate {
     
 }
 
-extension ParentViewController: ZoomTransitionSource {
+extension ParentViewController: ZoomTransitionSource, ZoomTransitionDestination {
+    
     func zoomTransitionAnimator(_ animator: ZoomTransitionAnimator, targetViewBeginningFrameFor operation: ZoomTransitionOperation) -> CGRect {
         return imageButton.frame
     }
-    
-    
-}
-
-extension ParentViewController: ZoomTransitionDestination {
     func zoomTransitionAnimator(_ animator: ZoomTransitionAnimator, targetViewFinalFrameFor operation: ZoomTransitionOperation) -> CGRect {
         return imageButton.frame
     }
-    
     
 }
