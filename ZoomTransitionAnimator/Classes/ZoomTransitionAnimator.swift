@@ -108,6 +108,7 @@ public class ZoomTransitionAnimator: NSObject, UIViewControllerAnimatedTransitio
         // Setting up beginning states
         
         targetViewSnapshotView.frame = targetViewBeginningFrame
+        fromViewSnapshotView.frame = fromView.frame
         toViewSnapshotView.frame = toViewFirstFrame
         toViewSnapshotView.alpha = 0
         backgroundView.backgroundColor = toView.backgroundColor

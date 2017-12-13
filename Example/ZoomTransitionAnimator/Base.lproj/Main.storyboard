@@ -71,11 +71,15 @@ Example</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="marguerite-daisy-beautiful-beauty.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="jXO-ts-xyD">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="marguerite-daisy-beautiful-beauty.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="jXO-ts-xyD">
                                 <rect key="frame" x="0.0" y="89.999999999999986" width="375" height="244.66666666666663"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="jXO-ts-xyD" secondAttribute="height" multiplier="500:326" id="2Fu-nA-Tan"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Efi-8d-fRy" appends="YES" id="lqp-uT-uyT"/>
+                                </connections>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XLv-ly-s5L">
                                 <rect key="frame" x="170" y="342.66666666666669" width="34" height="30"/>
@@ -109,6 +113,11 @@ Example</string>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SvX-c3-mMT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="Efi-8d-fRy">
+                    <connections>
+                        <action selector="didPanImageView:" destination="tCM-D1-EUN" id="2rj-2t-mgB"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1365.5999999999999" y="36.945812807881772"/>
         </scene>
