@@ -110,12 +110,7 @@ public class ZoomTransitionAnimator: NSObject, UIViewControllerAnimatedTransitio
         targetViewSnapshotView.frame = targetViewBeginningFrame
         toViewSnapshotView.frame = toViewFirstFrame
         toViewSnapshotView.alpha = 0
-        switch operation {
-        case .zoomIn:
-            backgroundView.backgroundColor = toView.backgroundColor
-        case .zoomOut:
-            backgroundView.backgroundColor = fromView.backgroundColor
-        }
+        backgroundView.backgroundColor = toView.backgroundColor
         
         
         // Animating

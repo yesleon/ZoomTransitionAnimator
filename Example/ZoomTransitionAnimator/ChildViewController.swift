@@ -19,7 +19,7 @@ class ChildViewController: UIViewController {
     
 }
 
-extension ChildViewController: ZoomTransitionParticipant {
+extension ChildViewController: ZoomTransitionDestination {
     
     func zoomTransitionAnimator(_ animator: ZoomTransitionAnimator, targetViewFinalFrameFor operation: ZoomTransitionOperation) -> CGRect {
         return imageView.frame
